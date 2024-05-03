@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
     Container,
     ContainerHeader,
@@ -12,12 +12,19 @@ import {
     RegisterText
 } from "./styles";
 
+import { AuthContext } from "../../context/auth";
 
 const SignIn = () => {
+    const { userName, userPassword } = useContext(AuthContext);
+
     return(
         <Container>
             <ContainerHeader animation="fadeInLeft" delay={500}>
-                <Message>Bem-Vindo(a)</Message>
+                <Message>
+                    Bem-Vindo(a)
+                    { userName }
+                    { userPassword }
+                </Message>
             </ContainerHeader>
 
             <ContainerForm animation="fadeInUp">
